@@ -73,7 +73,7 @@ def nn_model(data, number_hidden_layers, number_nodes):
 
     return output
 
-def train_nn(x, y, number_epochs, batch_size, number_hidden_layers, number_nodes):
+def train_nn(x, y, number_hidden_layers, number_nodes, number_epochs, batch_size):
     prediction = nn_model(x, number_hidden_layers, number_nodes)
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=prediction, labels=y))
     optimizer = tf.train.AdamOptimizer().minimize(cost)
@@ -102,12 +102,13 @@ def train_nn(x, y, number_epochs, batch_size, number_hidden_layers, number_nodes
 
 if __name__ == '__main__':
 
-    num_epochs = int(sys.argv[1])
-    batch_size = int(sys.argv[2])
-    num_layers = int(sys.argv[3])
-    num_nodes = int(sys.argv[4])
+    num_layers = int(sys.argv[1])
+    num_nodes = int(sys.argv[2])
+    num_epochs = int(sys.argv[3])
+    batch_size = int(sys.argv[4])
+    
 
     x = tf.placeholder('float', [None, QUANT_DATA])
     y = tf.placeholder('float', [None, N_OUTPUT])
 
-    train_nn(x, y, num_epochs, batch_size, num_layers, num_nodes)
+    train_nn(x, y, num_layers, num_nodes, num_epochs, batch_size)
