@@ -5,7 +5,7 @@
     Author: Vinícius Matheus
     Github: Vnicius
 
-    Based int the tutorial video: https://www.youtube.com/watch?v=BhpvH5DuVu8
+    Based in the tutorial video: https://www.youtube.com/watch?v=BhpvH5DuVu8
 
     The code get the dataset mnist of TensorFlow to train a Neural Network 
     with dimensions defined by parameters.
